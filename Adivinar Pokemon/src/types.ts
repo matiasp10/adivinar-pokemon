@@ -10,6 +10,7 @@ export interface FormularioProps {
   handleNewPokemon: (event: React.ChangeEvent<HTMLInputElement>) => void;
   isWrong: boolean;
   isGuessed: boolean;
+  hasAttempted: boolean;
 }
 
 export interface PokemonImageProps {
@@ -29,4 +30,14 @@ export interface ErrorMessageProps {
 
 export interface NextPokemonButtonProps {
   onClick: () => void;
+}
+
+export interface Stats {
+  aciertos: number;
+  errores: number;
+}
+
+export interface StatsDisplayProps {
+  stats: Stats;
+  onReset: () => void;
 }
