@@ -34,11 +34,15 @@ function App() {
   const verifyPokemon = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     setIsWrong(false);
-    if (newPokemon.toLowerCase() === pokemon.name.toLowerCase()) {
+    if (normalizePokemonName(newPokemon) === normalizePokemonName(pokemon.name)) {
       setIsGuessed(true);
     } else {
       setIsWrong(true);
     }
+  }
+
+  const normalizePokemonName = (name: string): string => {
+    return name.toLowerCase().replace(/[\s.-]/g, "");
   }
 
   return (
